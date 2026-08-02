@@ -408,3 +408,93 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("PMDRS Why Choose Section Loaded Successfully");
 
 });
+
+/* ==========================================================
+                INDUSTRIES SECTION
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const industryCards = document.querySelectorAll(".industry-card");
+
+    if (industryCards.length === 0) return;
+
+    /* -----------------------------------------
+       Scroll Animation
+    ------------------------------------------ */
+
+    const industryObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("industry-show");
+
+                industryObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+
+        threshold: 0.20
+
+    });
+
+    industryCards.forEach(card => {
+
+        card.classList.add("industry-hidden");
+
+        industryObserver.observe(card);
+
+    });
+
+    /* -----------------------------------------
+       Hover Animation
+    ------------------------------------------ */
+
+    industryCards.forEach(card => {
+
+        card.addEventListener("mouseenter", function () {
+
+            this.style.transform = "translateY(-12px) scale(1.03)";
+
+        });
+
+        card.addEventListener("mouseleave", function () {
+
+            this.style.transform = "";
+
+        });
+
+    });
+
+    /* -----------------------------------------
+       Icon Rotation
+    ------------------------------------------ */
+
+    industryCards.forEach(card => {
+
+        const icon = card.querySelector(".industry-icon");
+
+        card.addEventListener("mouseenter", function () {
+
+            icon.style.transform = "rotate(360deg)";
+
+            icon.style.transition = "0.8s ease";
+
+        });
+
+        card.addEventListener("mouseleave", function () {
+
+            icon.style.transform = "rotate(0deg)";
+
+        });
+
+    });
+
+    console.log("PMDRS Industries Section Loaded Successfully");
+
+});

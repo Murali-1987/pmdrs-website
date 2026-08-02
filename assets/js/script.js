@@ -601,3 +601,95 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("PMDRS Contact Section Loaded Successfully");
 
 });
+
+/* ==========================================================
+                        FOOTER
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const footer = document.querySelector(".footer");
+    const backToTop = document.getElementById("backToTop");
+
+    if (!footer) return;
+
+    /* -----------------------------------------
+       Footer Animation
+    ------------------------------------------ */
+
+    const footerObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                footer.classList.add("footer-show");
+
+                footerObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+    footer.classList.add("footer-hidden");
+    footerObserver.observe(footer);
+
+    /* -----------------------------------------
+       Back To Top
+    ------------------------------------------ */
+
+    if (backToTop) {
+
+        backToTop.addEventListener("click", function () {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        });
+
+    }
+
+    /* -----------------------------------------
+       Show / Hide Back To Top Button
+    ------------------------------------------ */
+
+    window.addEventListener("scroll", function () {
+
+        if (!backToTop) return;
+
+        if (window.scrollY > 500) {
+
+            backToTop.style.opacity = "1";
+            backToTop.style.visibility = "visible";
+
+        } else {
+
+            backToTop.style.opacity = "0";
+            backToTop.style.visibility = "hidden";
+
+        }
+
+    });
+
+    /* Initial State */
+
+    if (backToTop) {
+
+        backToTop.style.opacity = "0";
+        backToTop.style.visibility = "hidden";
+        backToTop.style.transition = "all 0.3s ease";
+
+    }
+
+    console.log("PMDRS Footer Loaded Successfully");
+
+});

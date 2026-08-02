@@ -318,3 +318,93 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("PMDRS Statistics Section Loaded Successfully");
 
 });
+
+/* ==========================================================
+                WHY CHOOSE PMDRS SECTION
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const whyCards = document.querySelectorAll(".why-card");
+
+    if (whyCards.length === 0) return;
+
+    /* -----------------------------------------
+       Scroll Animation
+    ------------------------------------------ */
+
+    const whyObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("why-show");
+
+                whyObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+
+        threshold: 0.20
+
+    });
+
+    whyCards.forEach(card => {
+
+        card.classList.add("why-hidden");
+
+        whyObserver.observe(card);
+
+    });
+
+    /* -----------------------------------------
+       Hover Animation
+    ------------------------------------------ */
+
+    whyCards.forEach(card => {
+
+        card.addEventListener("mouseenter", function () {
+
+            this.style.transform = "translateY(-12px) scale(1.03)";
+
+        });
+
+        card.addEventListener("mouseleave", function () {
+
+            this.style.transform = "";
+
+        });
+
+    });
+
+    /* -----------------------------------------
+       Icon Rotation
+    ------------------------------------------ */
+
+    whyCards.forEach(card => {
+
+        const icon = card.querySelector(".why-icon");
+
+        card.addEventListener("mouseenter", function () {
+
+            icon.style.transform = "rotate(360deg)";
+
+            icon.style.transition = "0.8s ease";
+
+        });
+
+        card.addEventListener("mouseleave", function () {
+
+            icon.style.transform = "rotate(0deg)";
+
+        });
+
+    });
+
+    console.log("PMDRS Why Choose Section Loaded Successfully");
+
+});

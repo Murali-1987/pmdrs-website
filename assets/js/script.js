@@ -221,3 +221,100 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("PMDRS Technologies Section Loaded Successfully");
 
 });
+
+/* ==========================================================
+                    STATISTICS SECTION
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const counters = document.querySelectorAll(".counter");
+    const statCards = document.querySelectorAll(".stat-card");
+
+    if (counters.length === 0) return;
+
+    const statisticsObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("stat-show");
+
+                const counter = entry.target.querySelector(".counter");
+
+                if (counter && !counter.classList.contains("counted")) {
+
+                    animateCounter(counter);
+
+                    counter.classList.add("counted");
+
+                }
+
+                statisticsObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+
+        threshold: 0.25
+
+    });
+
+    statCards.forEach(card => {
+
+        card.classList.add("stat-hidden");
+
+        statisticsObserver.observe(card);
+
+    });
+
+    function animateCounter(counter) {
+
+        const target = parseInt(counter.getAttribute("data-target"));
+
+        let current = 0;
+
+        const increment = Math.ceil(target / 80);
+
+        const timer = setInterval(() => {
+
+            current += increment;
+
+            if (current >= target) {
+
+                current = target;
+
+                clearInterval(timer);
+
+            }
+
+            counter.innerText = current;
+
+        }, 20);
+
+    }
+
+    /* Hover Animation */
+
+    statCards.forEach(card => {
+
+        card.addEventListener("mouseenter", function () {
+
+            this.style.transform = "translateY(-12px) scale(1.03)";
+
+        });
+
+        card.addEventListener("mouseleave", function () {
+
+            this.style.transform = "";
+
+        });
+
+    });
+
+    console.log("PMDRS Statistics Section Loaded Successfully");
+
+});

@@ -131,3 +131,93 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("PMDRS Services Section Loaded Successfully");
 
 });
+
+/* ==========================================================
+                    TECHNOLOGIES SECTION
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const technologyCards = document.querySelectorAll(".technology-card");
+
+    if (technologyCards.length === 0) return;
+
+    /* -----------------------------------------
+       Scroll Animation
+    ------------------------------------------ */
+
+    const technologyObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("technology-show");
+
+                technologyObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+
+        threshold: 0.20
+
+    });
+
+    technologyCards.forEach(card => {
+
+        card.classList.add("technology-hidden");
+
+        technologyObserver.observe(card);
+
+    });
+
+    /* -----------------------------------------
+       Hover Animation
+    ------------------------------------------ */
+
+    technologyCards.forEach(card => {
+
+        card.addEventListener("mouseenter", function () {
+
+            this.style.transform = "translateY(-12px) scale(1.03)";
+
+        });
+
+        card.addEventListener("mouseleave", function () {
+
+            this.style.transform = "";
+
+        });
+
+    });
+
+    /* -----------------------------------------
+       Icon Rotation
+    ------------------------------------------ */
+
+    technologyCards.forEach(card => {
+
+        const icon = card.querySelector(".technology-icon");
+
+        card.addEventListener("mouseenter", function () {
+
+            icon.style.transform = "rotate(360deg)";
+
+            icon.style.transition = "0.8s";
+
+        });
+
+        card.addEventListener("mouseleave", function () {
+
+            icon.style.transform = "rotate(0deg)";
+
+        });
+
+    });
+
+    console.log("PMDRS Technologies Section Loaded Successfully");
+
+});

@@ -863,3 +863,268 @@ footer{text-align:center;padding:25px;background:#0A2540;color:#fff}
         width:100%;
     }
 }
+
+/* ======================================================
+        PMDRS RESPONSIVE OPTIMIZATION
+        Version : v2.0
+====================================================== */
+
+/* ===============================
+   Large Desktop (1440px+)
+================================ */
+
+@media (min-width:1440px){
+
+    .container{
+
+        max-width:1400px;
+
+        margin:auto;
+
+    }
+
+}
+
+/* ===============================
+   Laptop (1024px - 1439px)
+================================ */
+
+@media (max-width:1200px){
+
+    .container{
+
+        width:92%;
+
+    }
+
+}
+
+/* ===============================
+   Tablet
+================================ */
+
+@media (max-width:992px){
+
+    section{
+
+        padding:80px 25px;
+
+    }
+
+    .hero{
+
+        padding:80px 25px;
+
+    }
+
+    .hero h1{
+
+        font-size:48px;
+
+    }
+
+    .hero h2{
+
+        font-size:26px;
+
+    }
+
+    .hero p{
+
+        font-size:18px;
+
+    }
+
+    .hero-buttons{
+
+        flex-wrap:wrap;
+
+    }
+
+    .contact-wrapper{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/* ===============================
+   Mobile
+================================ */
+
+@media (max-width:768px){
+
+    html{
+
+        scroll-behavior:smooth;
+
+    }
+
+    body{
+
+        overflow-x:hidden;
+
+    }
+
+    section{
+
+        padding:70px 20px;
+
+    }
+
+    .navbar{
+
+        flex-direction:column;
+
+        gap:18px;
+
+    }
+
+    .nav-links{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:15px;
+
+    }
+
+    .hero{
+
+        min-height:80vh;
+
+        text-align:center;
+
+    }
+
+    .hero h1{
+
+        font-size:36px;
+
+    }
+
+    .hero h2{
+
+        font-size:22px;
+
+    }
+
+    .hero p{
+
+        font-size:16px;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .btn-primary,
+
+    .btn-secondary{
+
+        width:220px;
+
+    }
+
+    .services-grid,
+
+    .technology-grid,
+
+    .statistics-grid,
+
+    .why-grid,
+
+    .industry-grid,
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .service-card,
+
+    .technology-card,
+
+    .stat-card,
+
+    .why-card,
+
+    .industry-card{
+
+        padding:30px 20px;
+
+    }
+
+    .section-header h2{
+
+        font-size:32px;
+
+    }
+
+    .section-header p{
+
+        font-size:16px;
+
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+}
+
+/* ===============================
+   Small Mobile
+================================ */
+
+@media (max-width:480px){
+
+    .hero h1{
+
+        font-size:30px;
+
+    }
+
+    .hero h2{
+
+        font-size:20px;
+
+    }
+
+    .hero p{
+
+        font-size:15px;
+
+    }
+
+    .counter{
+
+        font-size:38px;
+
+    }
+
+    .footer-logo{
+
+        width:70px;
+
+    }
+
+    #backToTop{
+
+        width:100%;
+
+    }
+
+}

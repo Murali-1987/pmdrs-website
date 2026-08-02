@@ -498,3 +498,106 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("PMDRS Industries Section Loaded Successfully");
 
 });
+
+/* ==========================================================
+                    CONTACT SECTION
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const contactSection = document.querySelector(".contact");
+    const contactForm = document.querySelector(".contact-form");
+    const contactInfo = document.querySelector(".contact-info");
+
+    if (!contactSection) return;
+
+    /* -----------------------------------------
+       Scroll Animation
+    ------------------------------------------ */
+
+    const contactObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                if (contactInfo) contactInfo.classList.add("contact-show");
+                if (contactForm) contactForm.classList.add("contact-show");
+
+                contactObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+
+        threshold: 0.20
+
+    });
+
+    if (contactInfo) {
+        contactInfo.classList.add("contact-hidden");
+    }
+
+    if (contactForm) {
+        contactForm.classList.add("contact-hidden");
+    }
+
+    contactObserver.observe(contactSection);
+
+    /* -----------------------------------------
+       Contact Form Validation
+    ------------------------------------------ */
+
+    const form = document.querySelector(".contact-form form");
+
+    if (form) {
+
+        form.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const name = form.querySelector("input[type='text']").value.trim();
+            const email = form.querySelector("input[type='email']").value.trim();
+
+            if (name === "" || email === "") {
+
+                alert("Please fill in the required fields.");
+
+                return;
+
+            }
+
+            alert("Thank you! Your message has been received. We will contact you soon.");
+
+            form.reset();
+
+        });
+
+    }
+
+    /* -----------------------------------------
+       Hover Effect
+    ------------------------------------------ */
+
+    document.querySelectorAll(".contact-item").forEach(item => {
+
+        item.addEventListener("mouseenter", function () {
+
+            this.style.transform = "translateX(10px)";
+            this.style.transition = "0.3s ease";
+
+        });
+
+        item.addEventListener("mouseleave", function () {
+
+            this.style.transform = "";
+
+        });
+
+    });
+
+    console.log("PMDRS Contact Section Loaded Successfully");
+
+});

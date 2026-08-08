@@ -50,6 +50,34 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-title" content="PMDRS">
 <link rel="manifest" href="site.webmanifest">
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pmdrs.in/#organization",
+      "name": "PMDRS Technologies",
+      "url": "https://pmdrs.in/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://pmdrs.in/assets/logo.png"
+      },
+      "description": "PMDRS Technologies delivers enterprise software, AI, cloud, SpaceTech, green energy and digital transformation solutions."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pmdrs.in/#website",
+      "url": "https://pmdrs.in/",
+      "name": "PMDRS Technologies",
+      "publisher": {
+        "@id": "https://pmdrs.in/#organization"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <header><nav class="navbar"><div class="logo">
